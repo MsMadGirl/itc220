@@ -1,0 +1,78 @@
+Rebecca Scott
+ITC 220
+Steve Conger
+Personal project
+
+Red in the Ledger
+
+Problem Statement:
+	Red in the Ledger will be an ungendered menstrual/hormonal cycle tracker with multiple trackables, user-defined trackables, and short journaling functions. It should be able to handle both very long, very short, and irregular cycles.
+
+Stakeholders:
+
+Rebecca Lynde-Scott - owner
+	Rebecca, as owner and creator of the database, wants to provide a hormone cycle tracking website for people of all genders, with variety and flexibility in what is tracked. She needs access to all the data, queries, forms, etc.
+
+Users
+	Users need to be able to see their information, create new entries, and update entries. 
+
+Business rules:
+
+	As little identifying information as possible is collected. No names, and while email is used for login, it does not absolutely have to be confirmed.
+	Because this database contains information of a personal and sensitive nature, all precautions must be taken to keep it safe.
+	However, data must be exportable to a CSV file.
+
+Security:
+
+	No user can be able to view the trackables or journals of any other user.
+	Passwords must be encrypted or hashed.
+	Personal data must be deletable by the user.
+	Because user-defined trackables will be in the same table as the site-defined trackables, and personal data must be deletable, care must be taken to ensure that site-defined trackables must not be deletable.
+
+Out of scope for this project:
+	Any predictive algorithms, including fertility prediction.
+	Front end requirements.
+	
+
+
+
+Requirements
+
+
+user
+	key
+	email
+
+	emailConfirmed
+	password
+	alphaTester
+	betaTester
+	created
+	
+	lastLogin
+
+
+
+trackable
+	
+	key
+	
+	name
+
+	type
+
+	startRange
+
+	endRange
+
+tracking
+	key
+	usersKey
+	trackableKey
+	enterDate
+
+	updatedDate
+	rating
+	textBox
+
+
