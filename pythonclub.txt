@@ -1,0 +1,35 @@
+Python Club
+
+Data Requirements:
+
+Meeting schedule: place, time, date, speakers, subject, duration, contact
+Meeting minutes: participants,  + all of above, minutes, topics to follow up on, results
+Meetups: place, time, date, participants, subject, duration, contact, post date, posted by
+Members: member ID, name, email, member since, leadership role
+Login information: id, username, user password, member id, 
+Posting: member who posted, post date, subject, url, event
+Resources and Tutorials: members who posted, post date, subject, url, description, rating
+General announcements: who posted, topic, date posted, kill date, text
+Discussion board: topic, date, posted by, discussion, comments, 
+Report inappropriate data: member posting, member reporting, post id, what's inappropriate about it. reviewed by, date, result, discussion
+Treasury records???
+
+Reporting requirements:
+Users: officers, members, public, database admin
+Views you need -- security:
+Members, email list
+List events, upcoming events, history of events
+List of meetings with minutes
+List of meetings without minutes
+list of resources
+List of analytics
+Advertising
+
+Security: 
+Roles (collections of permissions)
+Officers, what can they do:
+post meetings, add and remove members, remove posts, post meeting minutes, post events, post resources, post discussions, post meetups, (insert, update and delete in any table), manage member interactions to keep them legal and civil
+Members, what they can do:
+post events, discussion, announcements, add resources, edit their own posts but no one else's, view anything (question on member names and emails), option to hide their info, report inappropriate content, only view own reports
+Nonmembers:
+view contacts for club (not for all members), view calendar, not reports, 

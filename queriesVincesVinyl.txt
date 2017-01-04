@@ -1,0 +1,52 @@
+Use VincesVinyl
+
+Select * from Request
+
+Select * from Product;
+
+Insert into Product(ProductName, ProductArtist, ProductCondition, ProductCost, ProductAvailable, ProductSalePrice)
+values('Alice Restaurant', 'Arlo Guthrie', 'Good', 30.00, 1, 40.00)
+//added an album to Product so we'd have one that was the same
+
+SELECT *
+ FROM Request
+ INNER JOIN Product
+ ON Request.requesttitle=Product.ProductName;
+//Inner join to find albums with the same title in Request and Product
+
+ Select* from Customer
+  INNER JOIN Vendor
+  ON Vendor.VendorLastName = Customer.CustomerLastName;
+//Inner join to find Vendors and Customers with the same last name
+
+  Insert into Vendor(VendorFirstName, VendorLastName,VendorEmail,VendorPhone)
+values('Taewoo', 'Jung','TJ@google.com',2069337573)
+//inserted a vendor so we'd have one that was the same
+
+
+Select * from Vendor
+
+Select * from Customer
+
+select * from Product
+
+select * from Request
+
+
+select CustomerID, RequestTitle, RequestDate from Request
+inner join Product 
+on Request.RequestTitle=Product.ProductName
+//inner join to find Product and Request with the same title
+
+
+
+Insert into Product(ProductName, ProductArtist, ProductEdition, ProductCondition, ProductCost, ProductAvailable, ProductSalePrice)
+
+Values ('Espresso','Unknown', 'Limited', 'mint', 10.00, 1, 15.00 )
+//inserted into Product so we'd have one the same
+
+
+
+Insert into Request (CustomerID, RequestTitle, RequestDate, RequestFulfilled, RequestArtist, RequestCondition, RequestEdition)
+Values (1, 'Espresso', GETDATE(), 1,'Unknown', 'mint', 'Limited')
+//inserted into Request so we'd have one the same

@@ -1,0 +1,206 @@
+09/26/16
+
+Get:
+
+SQLExpress (SQLServer)
+MySQL
+
+MongoDB
+
+
+
+
+Database - any collection of related data
+
+Flat files - files of data with each piece of data separated by a deliminator such as a comma, or given a fixed width; useful for transferring data from one database to another, also sometimes used in programming
+
+Excel is essentially a flat file
+
+
+
+Hierarchical databases (XML structured that way), used a lot early on
+Advantages: easy to navigate, fairly fast
+
+Disadvantages: redundancy, difficult to compare data from one folder to another
+
+
+
+Relational databases - originated in 1970s, dominated the market for 40+ years
+
+Divides data into separate tables, not redundant
+
+Tables related by keys
+
+Disadvantages - not human readable, can get really complicated, easy to design badly
+
+Advantages - no redundancy, all can be related, easy to query
+
+
+
+NOSQL databases - growing increasingly popular. no rigid table structures, many use JSON (javascript) to store data
+good at storing unstructured data, like social media
+
+also good at organizing big data, data scattered all over internet
+not good at business transactions, where precision and accuracy must be guaranteed
+Lots of jobs opening up for NOSQL
+
+
+
+Databases based on 2 kinds math
+
+Set theory
+
+Predicate logic
+
+
+
+Database management systems
+
+Oracle
+
+Microsoft SQL Server
+
+DBASE (IBM)
+
+MySQL
+PostGres
+
+09/28/16
+
+When you are developing a db ask why it's needed
+why:
+new projects
+old data management system is inadequate
+upgrade data processing
+
+then define functions
+not what software to use, not what tables to create
+first figure out high level processes
+this is a statement of scope, which is like a contract
+typically you won't write SoS, or you'll write it in concert with client
+watch out for scope creep
+
+gathering information about what it needs to store
+conduct interviews with stakeholders
+maybe gathering everyone into one room with a paid moderator
+review of forms, reports and other documentation
+job shadowing (watching other people actually work with data) since they may not do what they say they do
+	may need to allow things like on the spot discounts or other things - db needs to be flexible enough to allow or strict enough to disallow
+
+next define the database requirements
+things database must do to succeed at its purpose
+	tenants, apartments, rent amounts, if rent has been paid
+who should have access, what kinds of access they should have
+
+business rules are about the ways that the data is process and treated 
+these can also affect how the database is designed
+	like late fines
+
+entity design
+after gathering all possible info, next step is to define the database requirements
+these are things the db must do to succeed at purpose
+entity design models the database tables and their relationships
+important to design before building
+easier to fix deisgn than built db
+saves time and money
+
+normalization is process of removing redundancies and possible anomalies
+effect is usually to divide data into more tables
+normal forms are white paper that define how to remove issues
+
+physical design
+actually building db in specific db mngmnt system
+involves creating and storing files, choosing data types, and creating db and tables
+
+prototyping and testing
+after you build the db, you find out if it does what it's supposed to do
+make sure it fits all requirements
+
+production
+
+
+10/10/16
+
+natural key -- primary key that belongs to data, like email
+surrogate key -- automatically given
+composite key -- two or three fields combine to make a unique key; very awkward
+candidate keys -- things in your data that might work as a primary key; like social security number
+
+In crow's foot notation:
+crow's foot means many
+crow's foot with circle means zero-or-many
+crow's foot and single line means one-or-many
+double lines mean one-and-only-one, and makes the foreign key required
+single line and circle means zero-or-one
+
+one-to-many relationship is valid
+one-to-one relationship is valid but rare, such as splitting data into public info about emplyee and private info
+many-to-many is valid in design but not in database, you have to create a new entity, a linking table
+
+10/12/16
+
+Normalization - checking for and eliminating redundant data, making sure design does not violate sql rules
+update anomaly
+insertion anomaly
+deletion anomaly
+
+first normal form (1NF) - There should be no repeated fields within an entity, no arrays (one column containing lists in individual fields). all entries in a column (attribute) should be of the same kind (no numbering). break out repetitions. give everything a key.
+
+second normal form (2NF) - remove all functional dependencies (Sub themes, groups of attributes that relate to each other but not to the topic (key) of the entity, needs to be moved into its own table),
+
+third normal form (3NF) - remove transient dependencies (anything that does not directly describe the key, more subtle than functional dependencies),
+
+
+10/24/16
+
+Virtual machine
+SQL server
+three ways to create a database and table:
+	within the designer
+	within the diagram
+	with SQL
+
+two ways to enter data
+	graphically
+	SQL
+
+
+11/21/16
+
+queries:
+
+Use Sakila;
+show tables;
+Select * from Customer;
+Select * from Actor;
+Select * from Film;
+Select * from film_actor;
+
+Select first_name, last_name, title
+from actor
+inner join film_actor
+on Actor.Actor_ID = Film_actor.actor_id
+inner join film 
+on film.film_id = film_actor.film_id
+where last_name = 'Berry';
+
+select * from artist_films
+where title = 'Academy Dinosaur';
+
+insert into actor(first_name, last_name, last_update)
+values('Joe', 'Smith'); #timestamp last_update field should autopop
+insert into film_actor(actor_id, film_id)
+values(201, 1);
+
+update actor
+set last_name = 'Smithers',
+first_name = 'Joseph'
+where actor_id = 201;
+
+start transaction;
+update actor
+set last_name = 'Smithers',
+first_name = 'Joseph';
+# start transaction puts it in safe mode, will not allow you to do it without where clause
+commit;
+rollback;
